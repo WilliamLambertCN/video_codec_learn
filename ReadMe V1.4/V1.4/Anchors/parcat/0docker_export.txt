@@ -1,0 +1,2 @@
+docker save <myimage>:<tag> | gzip > <myimage>_<tag>.tar.gz
+docker export -o /media/d1/ft_0119.tar 202c0072595d

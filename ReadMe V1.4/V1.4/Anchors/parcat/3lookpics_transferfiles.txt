@@ -1,0 +1,9 @@
+cd picture folder
+python -m http.server 8000
+
+#transfer files
+docker cp TVD-03.yuv 202c0072595d:/dataset/TVD
+
+docker cp /etc/localtime 202c0072595d:/etc/localtime
+docker cp 202c0072595d:/Anchors/parcat/exp_vtm_01-17-05-38-29_f65_qp47_itr32_GoP32/res/decode_TVD-02_p2p5feature.yuv .
+docker cp 202c0072595d:/Anchors/parcat/*.sh *.py *.txt -t .

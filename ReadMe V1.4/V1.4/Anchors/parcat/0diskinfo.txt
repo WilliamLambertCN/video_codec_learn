@@ -1,0 +1,4 @@
+du -h --max-depth=1
+du --max-depth=1
+ls -l
+ls -hl

@@ -1,0 +1,18 @@
+# don't run all in the same terminal
+# option1:
+dstat -p -c -T 5
+nvidia-smi
+# see cpu usages, recomand first
+
+# option2:
+top -b -d 10 -i -c -n 1 # see what process (PID) is running in CPU, for killing PID
+
+top -b -d 10 -i -c -n 1 | grep 'Encoder*'|awk '{print $0}'
+
+top -b -d 10 -i -c -n 1 | grep 'Encoder*'|awk '{print "kill " $1}' > EncoderToKill.sh
+
+
+# only kill part of encoders
+top -b -d 10 -i -c -n 1 | grep 'Encoder*'|awk '{if (($11>2)) print "kill " $1}' > EncoderToKill.sh
+
+top -b -d 10 -i -c -n 1 | grep 'python '|awk '{print "kill " $1}' > ToKill.sh
